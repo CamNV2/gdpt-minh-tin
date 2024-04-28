@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           // If the key is "Thứ hạng" and the value is 1, 2, or 3, create an img element
           if (key === "rank" && parseInt(value) <= 3) {
             const img = document.createElement('img');
-            img.src = `https://camnv2.github.io/lamvienvuihoc/images/svgexport-${value}.svg`; // Replace with the actual image URL
+            img.src = `https://camnv2.github.io/gdpt-minh-tin/images/svgexport-${value}.svg`; // Replace with the actual image URL
             td.appendChild(img);
           } else {
             if (key === "rank") {
