@@ -172,8 +172,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
     var playing = false;
 
-    bgSound = document.getElementById("bgSound");
-
     // bgSound.volume = 0.1;
 
     $("a#playBtn").click(function () {
