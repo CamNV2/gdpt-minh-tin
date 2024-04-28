@@ -663,3 +663,146 @@ canvas {
 .fz-16 {
     font-size: 16px !important;
 }
+
+.playBtn {
+    width: 70px;
+    height: 70px;
+    display: block;
+    background-color: #62bc33;
+    border-radius: 50%;
+    position: fixed;
+    right: 15px;
+    bottom: 50px;
+    z-index: 580;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:after {
+        display: block;
+        margin: auto;
+        content: "Dừng";
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        position: relative;
+        top: 40px;
+        transition: all 0.3s ease-in-out;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-family: arial;
+    }
+
+    .playIcon {
+        border: solid 4px #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        -ms-transform: translateY(-50%) translateX(-50%);
+        transform: translateY(-50%) translateX(-50%);
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+
+        &:after {
+            content: "";
+            display: block;
+            margin: auto;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 7.5px 0 7.5px 12px;
+            border-color: transparent transparent transparent #fff;
+            position: relative;
+            top: 6px;
+            left: 2px;
+        }
+    }
+
+    &.stopBtn {
+        .playIcon {
+            opacity: 1;
+        }
+
+        #bars {
+            opacity: 0;
+        }
+
+        &:after {
+            content: "Phát ngay";
+        }
+    }
+
+    #bars {
+        height: 30px;
+        width: 40px;
+        position: relative;
+        margin: auto;
+        top: 16px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .bar {
+        background: #fff;
+        bottom: 1px;
+        height: 3px;
+        position: absolute;
+        width: 5px;
+        animation: sound 0ms -800ms linear infinite alternate;
+    }
+}
+
+@keyframes sound {
+    0% {
+        opacity: 0.35;
+        height: 3px;
+    }
+
+    100% {
+        opacity: 1;
+        height: 28px;
+    }
+}
+
+.bar {
+    &:nth-child(1) {
+        left: 0px;
+        animation-duration: 474ms;
+    }
+
+    &:nth-child(2) {
+        left: 7px;
+        animation-duration: 433ms;
+    }
+
+    &:nth-child(3) {
+        left: 14px;
+        animation-duration: 407ms;
+    }
+
+    &:nth-child(4) {
+        left: 21px;
+        animation-duration: 458ms;
+    }
+
+    &:nth-child(5) {
+        left: 28px;
+        animation-duration: 400ms;
+    }
+
+    &:nth-child(6) {
+        left: 35px;
+        animation-duration: 427ms;
+    }
+}
+
+@media only screen and (max-width: 997px) {
+    .playBtn {
+        transform: scale(0.5);
+        right: 20px;
+        bottom: 20px;
+    }
+}

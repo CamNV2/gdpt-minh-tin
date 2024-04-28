@@ -270,8 +270,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
         alert('Vui lòng đăng nhập để xem!')
       }
     })
-    var audio = document.getElementById("player");
-    audio.play();
+    var playing = false;
+
+    bgSound = document.getElementById("bgSound");
+
+    // bgSound.volume = 0.1;
+
+    $("a#playBtn").click(function () {
+      $(this).toggleClass("stopBtn");
+
+      if (playing == false) {
+        document.getElementById("bgSound").play();
+        playing = true;
+      } else {
+        document.getElementById("bgSound").pause();
+        playing = false;
+      }
+    });
   });
   // Your code to run since DOM is loaded and ready
 });
