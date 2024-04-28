@@ -564,7 +564,6 @@ ul {
 
 .footer-widget ul li {
     display: inline-block;
-    float: left;
     width: 50%;
     margin-bottom: 12px;
 }
@@ -668,7 +667,7 @@ canvas {
     width: 70px;
     height: 70px;
     display: block;
-    background-color: #62bc33;
+    background-color: #1089ff;
     border-radius: 50%;
     position: fixed;
     right: 15px;
@@ -732,7 +731,7 @@ canvas {
         }
 
         &:after {
-            content: "Phát ngay";
+            content: "Phát";
         }
     }
 
