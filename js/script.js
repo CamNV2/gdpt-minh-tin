@@ -270,6 +270,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         alert('Vui lòng đăng nhập để xem!')
       }
     })
+    var audio = document.getElementById("audio");
+    audio.play();
   });
   // Your code to run since DOM is loaded and ready
 });
