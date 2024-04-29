@@ -803,7 +803,7 @@ canvas {
     .playBtn {
         transform: scale(0.5);
         right: 20px;
-        bottom: 50px;
+        bottom: 60px;
     }
 }
 

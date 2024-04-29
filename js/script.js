@@ -14,7 +14,7 @@ let signInBtn = document.getElementById("sign-in-btn")
 
 // Show All Data in Web from localStorage
 function show_L_data() {
-  debugger
+
   let infosLparse = JSON.parse(localStorage.getItem("infos"))
   if (localStorage.getItem("infos") && infosLparse != null) {
     $("#sign-in-btn").addClass("d-none")
@@ -55,7 +55,7 @@ window.addEventListener("load", show_L_data())
 
 // Sign in // Sign in // Sign in // Sign in
 function handleCredentialResponse(response) {
-  debugger
+
   // decodeJwtResponse() is a custom function defined by you
   // to decode the credential response.
   const responsePayload = decodeJwtResponse(response.credential);
@@ -80,7 +80,7 @@ function handleCredentialResponse(response) {
 // decodeJwtResponse()
 function decodeJwtResponse(data) {
   let tokens = data.split(".");
-  return JSON.parse(atob(tokens[1]))
+  return JSON.parse(decodeURIComponent(atob(tokens[1])))
 }
 
 // Sign Out
@@ -98,7 +98,7 @@ out.addEventListener("click", () => {
 
 //UI
 document.addEventListener("DOMContentLoaded", function (event) {
-  debugger
+
   const showNavbar = (toggleId, navId, bodyId, headerId, mainContentId) => {
     const toggle = document.getElementById(toggleId),
       nav = document.getElementById(navId),
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // Validate that all variables exist
     if (toggle && nav && bodypd && headerpd) {
       toggle.addEventListener('click', () => {
-        debugger
+
         // show navbar
         nav.classList.toggle('show')
         // change icon
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   function sectionDisplay(id) {
-    debugger
+
     if (sectionCpn) {
       sectionCpn.forEach(l => { l.classList.remove('d-none'); l.classList.add('d-none') })
       $("#" + id + "-section").removeClass('d-none')
@@ -199,38 +199,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // Sample data
     const data = [
-      "1	Ánh Trinhh xđ	15	02:35	Thu 25 Apr 2024,10:14 AM	900	900",
-      "2	Bích Đỗ	14	04:38	Wed 24 Apr 2024,09:40 PM	840	840",
-      "3	Tô Hoàng Duy	13	07:06	Wed 24 Apr 2024,08:16 PM	780	780",
-      "4	Ánh Tình	11	04:48	Thu 25 Apr 2024,09:39 AM	660	660",
-      "5	Xuân Hoa	10	09:39	Sat 27 Apr 2024,09:17 PM	600	600",
-      "6	Quỳnh Như	9	04:53	Sat 27 Apr 2024,10:27 PM	540	540",
-      "7	Hoàng Đức Đỗ	9	04:57	Wed 24 Apr 2024,08:16 PM	540	540",
-      "8	Thùy Duyên	9	07:58	Wed 24 Apr 2024,09:10 PM	540	540",
-      "9	Huyền Diệu	9	12:08	Sat 27 Apr 2024,04:34 PM	540	540",
-      "10	Kiều Diễm	8	04:24	Wed 24 Apr 2024,10:19 PM	480	480",
-      "11	Cẩm viên	8	07:21	Thu 25 Apr 2024,06:21 PM	480	480",
-      "12	Kim Tiến	8	11:01	Fri 26 Apr 2024,11:27 PM	480	480",
-      "13	Thu Lựu	7	04:26	Sat 27 Apr 2024,11:26 AM	420	420",
-      "14	Kim hương	6	03:49	Wed 24 Apr 2024,08:18 PM	360	360",
-      "15	Vương thị Hoài thương	6	04:06	Sat 27 Apr 2024,03:09 PM	360	360",
-      "16	Huyền trinh	5	02:00	Thu 25 Apr 2024,12:28 AM	300	300",
-      "17	Duy Văn	4	03:34	Sat 27 Apr 2024,09:39 PM	240	240",
-      "18	Duyên Duyên	3	03:31	Wed 24 Apr 2024,08:17 PM	180	180"
+      "1	Ánh Trinhh xđ	15	02:35	Thu 25 Apr 2024,10:14 AM	15",
+      "2	Bích Đỗ	14	04:38	Wed 24 Apr 2024,09:40 PM	14",
+      "3	Tô Hoàng Duy	13	07:06	Wed 24 Apr 2024,08:16 PM	13",
+      "4	Ánh Tình	11	04:48	Thu 25 Apr 2024,09:39 AM	11",
+      "5	Xuân Hoa	10	09:39	Sat 27 Apr 2024,09:17 PM	10",
+      "6	Quỳnh Như	9	04:53	Sat 27 Apr 2024,10:27 PM	540	9",
+      "7	Hoàng Đức Đỗ	9	04:57	Wed 24 Apr 2024,08:16 PM	9",
+      "8	Thùy Duyên	9	07:58	Wed 24 Apr 2024,09:10 PM	9",
+      "9	Huyền Diệu	9	12:08	Sat 27 Apr 2024,04:34 PM	9",
+      "10	Kiều Diễm	8	04:24	Wed 24 Apr 2024,10:19 PM	8",
+      "11	Cẩm viên	8	07:21	Thu 25 Apr 2024,06:21 PM	8",
+      "12	Kim Tiến	8	11:01	Fri 26 Apr 2024,11:27 PM	8",
+      "13	Thu Lựu	7	04:26	Sat 27 Apr 2024,11:26 AM	7",
+      "14	Kim hương	6	03:49	Wed 24 Apr 2024,08:18 PM	6",
+      "15	Vương thị Hoài thương	6	04:06	Sat 27 Apr 2024,03:09 PM	6",
+      "16	Huyền trinh	5	02:00	Thu 25 Apr 2024,12:28 AM	5",
+      "17	Duy Văn	4	03:34	Sat 27 Apr 2024,09:39 PM	4",
+      "18	Duyên Duyên	3	03:31	Wed 24 Apr 2024,08:17 PM	3"
     ];
 
     // Function to convert data to JSON format
     function convertToJSON(data) {
       return data.map(row => {
-        const [rank, name, correctAnswers, totalResponseTime, startTime, score1, score2] = row.split('\t');
+        const [rank, name, score, totalResponseTime, startTime, totalScore] = row.split('\t');
         return {
           "rank": rank,
           "name": name,
-          "correctAnswers": correctAnswers,
+          "score": score,
           "totalResponseTime": totalResponseTime,
           "startTime": startTime,
-          "score1": score1,
-          "score2": score2
+          "totalScore": totalScore
         };
       });
     }
@@ -255,9 +254,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
           } else {
             if (key === "rank") {
               td.classList.add("pd-45");
-            } else if (key === "correctAnswers") {
+            } else if (key === "score") {
               td.classList.add("pd-50");
-            } else if (key === "totalResponseTime" || key === "score1" || key === "score2") {
+            } else if (key === "totalResponseTime" || key === "totalScore") {
               td.classList.add("pd-60");
             }
             td.textContent = value;
